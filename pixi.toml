@@ -1,0 +1,26 @@
+[workspace]
+name = "tesseract-ur-ws"
+version = "0.1.0"
+description="Workspace for testing Universal Robots path planning with Tesseract"
+authors=["Joris Spikker <j.b.w.spikker@saxion.nl>"]
+channels = ["https://prefix.dev/robostack-lyrical"]
+platforms = [
+{platform="linux-64", glibc = "2.35"}
+]
+
+
+[target.linux-64.activation.env]
+QT_QPA_PLATFORM = "xcb"
+
+[tasks]
+build = "colcon build --symlink-install"
+
+[dependencies]
+ros-lyrical-desktop = ">=0.13.0,<0.14"
+ros-dev-tools = ">=1.0.3,<2"
+ros-lyrical-ur = ">=6.1.0,<7"
+colcon-common-extensions = ">=0.3.0,<0.4"
+setuptools = "<80" 
+
+[pypi-dependencies]
+tesseract-robotics-nanobind = ">=0.35.0.8, <0.36"
